@@ -1,0 +1,63 @@
+/* Custom color theme properties */
+:root {
+  --f7-theme-color: #fb5851;
+  --f7-theme-color-rgb: 251, 88, 81;
+  --f7-theme-color-shade: #fa3229;
+  --f7-theme-color-tint: #fc7e79;
+
+  --f7-table-head-cell-height: auto;
+
+  --f7-table-head-font-size: 12px;
+  --f7-table-body-font-size: 12px;
+  --f7-table-body-cell-height: 18px;
+  --f7-table-cell-padding-horizontal: 0px;
+  --f7-card-margin-horizontal: 16px;
+  --f7-card-border-radius: 10px;
+  --f7-card-bg-color: #fff;
+  --f7-card-header-background-color: rgba(0, 255, 157, 0.1);
+  --f7-table-footer-font-size: 12px;
+  --f7-table-input-height: 24px;
+  --f7-table-input-font-size: 14px;
+  --f7-table-collapsible-cell-padding: 16px;
+  --f7-table-link-icon-only-icon-size: 20px;
+  --f7-table-head-bg-color: transparent;
+  --f7-table-card-header-bg-color: transparent;
+  --f7-table-card-header-height: 64px;
+  --f7-table-cell-padding-vertical: 0px;
+  --f7-table-sortable-icon-color: #000;
+}
+body {
+}
+.page {
+  background: rgb(220, 220, 220);
+}
+#btnBlock {
+}
+#btnCard {
+}
+#resetButton {
+  justify-content: center;
+}
+#type1Card {
+  max-width: 33%;
+}
+#type2Card {
+  max-width: 33%;
+}
+/* Your app custom styles here */
+#typeRow {
+  // display: inline-block;
+  justify-content: center;
+}
+.numeric-cell {
+  // display: inline-flex;
+  // width: 10%;
+}
+
+.typeCards {
+  // width: 100%; // margin-left: 24px;
+}
+
+.superEff {
+  // background: #fc7e79;
+}

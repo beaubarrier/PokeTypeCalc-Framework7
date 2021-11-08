@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+body {
+  font-family: "Press Start Player2";
+  font-size: 10px;
+}
+
+#mainContainer {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+#mainGridContainer {
+  font-size: 8px;
+  display: flex;
+  column-gap: 10px;
+  row-gap: 10px;
+  width: 100%;
+  height: 50%;
+  flex-flow: row wrap;
+  grid-template-columns: repeat(5);
+  grid-template-rows: repeat(8, auto);
+  /* border: 1px solid; */
+}
+#type1Container {
+  /* font-size: 10px; */
+  column-gap: 1fr;
+  row-gap: 1fr;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  /* border: 1px solid; */
+  column-gap: 10px;
+  row-gap: 15px;
+  width: 49%;
+  height: 100%;
+}
+#type2Container {
+  /* justify-self: center; */
+  grid-column-start: 3;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  /* border: 1px solid; */
+  width: 49%;
+  height: 100%;
+}
+#defContainer {
+  justify-content: center;
+  width: 49%;
+  /* border: 1px solid; */
+  /* 
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 2; */
+}
+#resetBtnContainer {
+  justify-self: center;
+  /* border: 1px solid; */
+  width: 49%;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+#btnContainer {
+  justify-self: center;
+  /* border: 1px solid; */
+
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 8;
+  width: 100%;
+}
+
+.superEffective {
+  background-color: rgb(200, 225, 190);
+}
+.notVeryEffective {
+  background-color: rgb(225, 190, 190);
+}

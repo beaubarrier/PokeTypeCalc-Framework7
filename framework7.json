@@ -1,0 +1,19 @@
+{
+  "cwd": "/Users/beaubarrier/Documents/GitHub/PokeTypeCalc-Framework7",
+  "type": [
+    "web"
+  ],
+  "name": "pokeTypeCalc",
+  "framework": "react",
+  "template": "blank",
+  "cssPreProcessor": "scss",
+  "bundler": "vite",
+  "theming": {
+    "customColor": true,
+    "color": "#fb5851",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false
+}

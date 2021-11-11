@@ -13,7 +13,7 @@
   --f7-table-cell-padding-horizontal: 0px;
   --f7-card-margin-horizontal: 16px;
   --f7-card-border-radius: 10px;
-  --f7-card-bg-color: #fff;
+  --f7-card-bg-color: transparent;
   --f7-card-header-background-color: rgba(0, 255, 157, 0.1);
   --f7-table-footer-font-size: 12px;
   --f7-table-input-height: 24px;
@@ -26,28 +26,56 @@
   --f7-table-cell-padding-vertical: 0px;
   --f7-table-sortable-icon-color: #000;
 }
+.ios {
+  --f7-font-family: Times New;
+  --f7-line-height: 1.4;
+  --f7-text-color: #000;
+  --f7-bars-border-color: rgba(0, 0, 0, 0.25);
+}
 body {
+  background-image: url(../assets/rotomBackg.jpg);
 }
 .page {
   background: rgb(220, 220, 220);
+  background-image: url(../assets/rotomBackg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  // background-position: 100%;
 }
+// img {
+//   max-width: 90%;
+// }
+// .typeWidth {
+//   width: 50%;
+// }
 #btnBlock {
 }
+#renderCard {
+}
 #btnCard {
+  // justify-content: left;
+  margin-left: 10%;
+  max-width: 80%;
+  max-height: 100%;
 }
 #resetButton {
   justify-content: center;
 }
-#type1Card {
-  max-width: 33%;
-}
-#type2Card {
-  max-width: 33%;
-}
+// #type1Card {
+//   max-width: 95%;
+//   min-width: 95%;
+// }
+// #type2Card {
+//   max-width: 95%;
+//   min-width: 95%;
+// }
 /* Your app custom styles here */
 #typeRow {
-  // display: inline-block;
+  display: inline-block;
   justify-content: center;
+  margin-top: 38%;
+  max-height: 90%;
 }
 .numeric-cell {
   // display: inline-flex;

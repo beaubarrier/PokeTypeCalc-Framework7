@@ -70,12 +70,20 @@ const TypeDataFunc = () => {
               setCurrentTypeBtn("type2");
             }}
             style={{
-              width: "25%",
+              width: "28%",
               border: "none",
               background: "none",
+              justifySelf: "center",
             }}
           >
-            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrc} />
+            <img
+              alt={`typeBtn${type.id}`}
+              key={type.name}
+              src={type.imgSrc}
+              style={{
+                width: "100%",
+              }}
+            />
           </button>
         ))}
       </div>
@@ -100,12 +108,19 @@ const TypeDataFunc = () => {
               setCurrentTypeBtn("clear");
             }}
             style={{
-              width: "25%",
+              width: "100%",
               border: "none",
               background: "none",
             }}
           >
-            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrc} />
+            <img
+              alt={`typeBtn${type.id}`}
+              key={type.name}
+              src={type.imgSrc}
+              style={{
+                width: "100%",
+              }}
+            />
           </button>
         ))}
       </div>
@@ -129,7 +144,9 @@ const TypeDataFunc = () => {
     let weakImgArr = [];
     nameArr.forEach((e) => {
       if (weakSt.includes(e.name)) {
-        weakImgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        weakImgArr.push(
+          <img alt={e.name} key={e.name} src={e.imgSrc} className="typeWidth" />
+        );
         setWeakStImg(weakImgArr);
       }
     });
@@ -139,7 +156,9 @@ const TypeDataFunc = () => {
     let resistImgArr = [];
     nameArr.forEach((e) => {
       if (resistSt.includes(e.name)) {
-        resistImgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        resistImgArr.push(
+          <img alt={e.name} key={e.name} src={e.imgSrc} className="typeWidth" />
+        );
         setResistStImg(resistImgArr);
       }
     });
@@ -149,7 +168,9 @@ const TypeDataFunc = () => {
     let immuneImgArr = [];
     nameArr.forEach((e) => {
       if (immuneSt.includes(e.name)) {
-        immuneImgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        immuneImgArr.push(
+          <img alt={e.name} key={e.name} src={e.imgSrc} className="typeWidth" />
+        );
         setImmuneStImg(immuneImgArr);
       }
     });
@@ -160,7 +181,9 @@ const TypeDataFunc = () => {
 
     nameArr.forEach((e) => {
       if (type1name.includes(e.name)) {
-        type1ImgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        type1ImgArr.push(
+          <img alt={e.name} key={e.name} src={e.imgSrc} className="typeWidth" />
+        );
         setType1NameImg(type1ImgArr);
       }
     });
@@ -170,7 +193,9 @@ const TypeDataFunc = () => {
     let type2ImgArr = [];
     nameArr.forEach((e) => {
       if (type2name.includes(e.name)) {
-        type2ImgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        type2ImgArr.push(
+          <img alt={e.name} key={e.name} src={e.imgSrc} className="typeWidth" />
+        );
         setType2NameImg(type2ImgArr);
       }
     });
@@ -180,7 +205,21 @@ const TypeDataFunc = () => {
     let imgArr = [];
     nameArr.forEach((e) => {
       if (type1AtkSE.includes(e.name)) {
-        imgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        imgArr.push(
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            //Size of image in field
+            style={{
+              width: "13%",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
+        );
         setType1AtkSEImg(imgArr);
       }
     });
@@ -190,7 +229,20 @@ const TypeDataFunc = () => {
     let imgArr = [];
     nameArr.forEach((e) => {
       if (type1AtkNE.includes(e.name)) {
-        imgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        imgArr.push(
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            style={{
+              width: "13%",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
+        );
         setType1AtkNEImg(imgArr);
       }
     });
@@ -200,7 +252,20 @@ const TypeDataFunc = () => {
     let imgArr = [];
     nameArr.forEach((e) => {
       if (type1AtkNF.includes(e.name)) {
-        imgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        imgArr.push(
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            style={{
+              width: "13%",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
+        );
         setType1AtkNFImg(imgArr);
       }
     });
@@ -210,7 +275,20 @@ const TypeDataFunc = () => {
     let imgArr = [];
     nameArr.forEach((e) => {
       if (type2AtkSE.includes(e.name)) {
-        imgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        imgArr.push(
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            style={{
+              width: "13%",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
+        );
         setType2AtkSEImg(imgArr);
       }
     });
@@ -220,7 +298,20 @@ const TypeDataFunc = () => {
     let imgArr = [];
     nameArr.forEach((e) => {
       if (type2AtkNE.includes(e.name)) {
-        imgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        imgArr.push(
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            style={{
+              width: "13%",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
+        );
         setType2AtkNEImg(imgArr);
       }
     });
@@ -230,7 +321,20 @@ const TypeDataFunc = () => {
     let imgArr = [];
     nameArr.forEach((e) => {
       if (type2AtkNF.includes(e.name)) {
-        imgArr.push(<img alt={e.name} key={e.name} src={e.imgSrc} />);
+        imgArr.push(
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            style={{
+              width: "13%",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
+        );
         setType2AtkNFImg(imgArr);
       }
     });
@@ -375,7 +479,9 @@ const TypeDataFunc = () => {
         <Block>
           <Row id="btnBlock">
             <div id="btnCard">
-              <Card content={btnRender()}>{/* {btnRender()} */}</Card>
+              <Card id="renderCard" content={btnRender()}>
+                {/* {btnRender()} */}
+              </Card>
             </div>
           </Row>
         </Block>

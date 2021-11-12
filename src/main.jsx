@@ -70,19 +70,19 @@ const TypeDataFunc = () => {
               setCurrentTypeBtn("type2");
             }}
             style={{
-              width: "28%",
+              width: "15%",
               border: "none",
               background: "none",
-              justifySelf: "center",
+              margin: "3px 1px 2px 2px",
             }}
           >
             <img
               alt={`typeBtn${type.id}`}
               key={type.name}
               src={type.imgSrc}
-              style={{
-                width: "100%",
-              }}
+              // style={{
+              //   width: "60px",
+              // }}
             />
           </button>
         ))}
@@ -108,18 +108,19 @@ const TypeDataFunc = () => {
               setCurrentTypeBtn("clear");
             }}
             style={{
-              width: "100%",
+              width: "15%",
               border: "none",
               background: "none",
+              margin: "3px 1px 2px 2px",
             }}
           >
             <img
               alt={`typeBtn${type.id}`}
               key={type.name}
               src={type.imgSrc}
-              style={{
-                width: "100%",
-              }}
+              // style={{
+              //   width: "100%",
+              // }}
             />
           </button>
         ))}
@@ -182,7 +183,18 @@ const TypeDataFunc = () => {
     nameArr.forEach((e) => {
       if (type1name.includes(e.name)) {
         type1ImgArr.push(
-          <img alt={e.name} key={e.name} src={e.imgSrc} className="typeWidth" />
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            style={{
+              width: "4.5em",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
         );
         setType1NameImg(type1ImgArr);
       }
@@ -194,7 +206,18 @@ const TypeDataFunc = () => {
     nameArr.forEach((e) => {
       if (type2name.includes(e.name)) {
         type2ImgArr.push(
-          <img alt={e.name} key={e.name} src={e.imgSrc} className="typeWidth" />
+          <img
+            alt={e.name}
+            key={e.name}
+            src={e.imgSrc}
+            className="typeWidth"
+            style={{
+              width: "4.5em",
+              border: "none",
+              background: "none",
+              justifySelf: "center",
+            }}
+          />
         );
         setType2NameImg(type2ImgArr);
       }
@@ -213,7 +236,7 @@ const TypeDataFunc = () => {
             className="typeWidth"
             //Size of image in field
             style={{
-              width: "13%",
+              width: "20%",
               border: "none",
               background: "none",
               justifySelf: "center",
@@ -236,7 +259,7 @@ const TypeDataFunc = () => {
             src={e.imgSrc}
             className="typeWidth"
             style={{
-              width: "13%",
+              width: "20%",
               border: "none",
               background: "none",
               justifySelf: "center",
@@ -259,7 +282,7 @@ const TypeDataFunc = () => {
             src={e.imgSrc}
             className="typeWidth"
             style={{
-              width: "13%",
+              width: "20%",
               border: "none",
               background: "none",
               justifySelf: "center",
@@ -282,7 +305,7 @@ const TypeDataFunc = () => {
             src={e.imgSrc}
             className="typeWidth"
             style={{
-              width: "13%",
+              width: "20%",
               border: "none",
               background: "none",
               justifySelf: "center",
@@ -305,7 +328,7 @@ const TypeDataFunc = () => {
             src={e.imgSrc}
             className="typeWidth"
             style={{
-              width: "13%",
+              width: "20%",
               border: "none",
               background: "none",
               justifySelf: "center",
@@ -328,7 +351,7 @@ const TypeDataFunc = () => {
             src={e.imgSrc}
             className="typeWidth"
             style={{
-              width: "13%",
+              width: "20%",
               border: "none",
               background: "none",
               justifySelf: "center",
@@ -396,33 +419,40 @@ const TypeDataFunc = () => {
   }
 
   return (
-    <div>
+    <div id="superContainer">
       {/* <Block className="grid"> */}
       <Row id="typeRow">
         {/* <Block className="typeCards"> */}
+
         <Card className="data-table card " id="type1Card">
           <table>
+            {/* <tr style={{ left: "100px" }}> */}
+            {/* <th>Type1</th> */}
+
             <thead>
-              <tr className="type1Name" style={{ left: "100px" }}>
-                <th>{type1nameImg}</th>
+              <tr>
+                {/* <th>Type1</th> */}
+                <th className="type1Name">{type1nameImg}</th>
+                {/* <td className="title">Type1</td> */}
               </tr>
             </thead>
+            {/* </tr> */}
             <tbody>
               <tr>
-                <th>Super Effective:</th>
+                <td>Super Effective:</td>
               </tr>
               <tr>
                 <td className="superEff">{type1AtkImgSE}</td>
               </tr>
 
               <tr>
-                <th>Not Very Effective:</th>
+                <td>Not Very Effective:</td>
               </tr>
               <tr>
                 <td className="notVeryEff">{type1AtkImgNE}</td>
               </tr>
               <tr>
-                <th>No Effect:</th>
+                <td>No Effect:</td>
               </tr>
               <tr>
                 <td className="superEff">{type1AtkImgNF}</td>
@@ -434,25 +464,27 @@ const TypeDataFunc = () => {
           <table>
             <thead>
               <tr className="type2Name" style={{ left: "100px" }}>
+                {/* <th>Type2</th> */}
+
                 <th>{type2nameImg}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>Super Effective:</th>
+                <td>Super Effective:</td>
               </tr>
               <tr>
                 <td className="superEff">{type2AtkImgSE}</td>
               </tr>
 
               <tr>
-                <th>Not Very Effective:</th>
+                <td>Not Very Effective:</td>
               </tr>
               <tr>
                 <td className="notVeryEff">{type2AtkImgNE}</td>
               </tr>
               <tr>
-                <th>No Effect:</th>
+                <td>No Effect:</td>
               </tr>
               <tr>
                 <td className="superEff">{type2AtkImgNF}</td>
@@ -460,11 +492,51 @@ const TypeDataFunc = () => {
             </tbody>
           </table>
         </Card>
-        {/* </Block> */}
+        <Card className="data-table card">
+          <table>
+            <thead>
+              <tr className="defName" style={{ left: "100px" }}>
+                <th>Defenses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Weakness:</td>
+              </tr>
+              <tr>
+                <td className="superEff">{weakStImg}</td>
+              </tr>
+
+              <tr>
+                <td>Resist:</td>
+              </tr>
+              <tr>
+                <td className="notVeryEff">{resistStImg}</td>
+              </tr>
+              <tr>
+                <td>Immune:</td>
+              </tr>
+              <tr>
+                <td className="superEff">{immuneStImg}</td>
+              </tr>
+            </tbody>
+          </table>
+        </Card>
+        <Card>
+          <Button
+            className="button-round button-fill	button-raised	button-outline button-small	"
+            onClick={() => {
+              clearTypes();
+              setCurrentTypeBtn("type1");
+            }}
+          >
+            Reset
+          </Button>
+        </Card>
+        <Card id="btnCard">{btnRender()}</Card>
       </Row>
-      {/* </Block> */}
-      <Row id="resetButton">
-        <Block>
+      {/* <Row id="resetButton"> */}
+      {/* <Block>
           <Button
             className="button-round button-fill	button-raised	button-outline	"
             onClick={() => {
@@ -474,18 +546,14 @@ const TypeDataFunc = () => {
           >
             Reset
           </Button>
-        </Block>
+        </Block> */}
 
-        <Block>
-          <Row id="btnBlock">
-            <div id="btnCard">
-              <Card id="renderCard" content={btnRender()}>
-                {/* {btnRender()} */}
-              </Card>
-            </div>
-          </Row>
-        </Block>
-      </Row>
+      {/*  */}
+      {/* <Card id="renderCard" content={btnRender()}> */}
+
+      {/* </Card> */}
+      {/* </div> */}
+      {/* </Row> */}
     </div>
   );
 };

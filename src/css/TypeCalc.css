@@ -24,31 +24,31 @@ body {
 }
 #type1Container {
   /* font-size: 10px; */
-  column-gap: 1fr;
+  /* column-gap: 1fr;
   row-gap: 1fr;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
-  /* border: 1px solid; */
   column-gap: 10px;
   row-gap: 15px;
   width: 49%;
-  height: 100%;
+  height: 100%; */
 }
 #type2Container {
   /* justify-self: center; */
-  grid-column-start: 3;
+  /* grid-column-start: 3;
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 1;
-  /* border: 1px solid; */
   width: 49%;
-  height: 100%;
-}
-#defContainer {
+  height: 100%; */
   justify-content: center;
   width: 49%;
+}
+#defContainer {
+  /* justify-content: center;
+  width: 49%; */
   /* border: 1px solid; */
   /* 
   grid-column-start: 1;

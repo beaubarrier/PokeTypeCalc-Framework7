@@ -27,7 +27,8 @@
   --f7-table-sortable-icon-color: #000;
 }
 .grid-demo div[class*='col'] {
-  // background: #fff;
+  // background: #fff;  
+  position: fixed; // I may need to make this absolute/fixed to keep buttons in same spot, then adjust position for each element.
   text-align: center;
   color: #000;
   // border: 1px solid #ddd;
@@ -37,7 +38,7 @@
   margin-bottom: 15px;
 }
 .grid-resizable-demo {
-  --f7-grid-row-gap: 16px;
+  --f7-grid-row-gap: 0px;
 }
 .grid-resizable-demo div[class*='col'] {
   margin-bottom: 0;
@@ -120,7 +121,7 @@ body {
 // }
 /* Your app custom styles here */
 #typeRow {
-  display: inline-block;
+  display: flex;
   justify-content: center;
   margin-top: 38%;
   min-width: 100%;

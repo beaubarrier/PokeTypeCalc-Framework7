@@ -134,7 +134,7 @@ const TypeData = [
     imgSrc: fightingType,
     imgSrcC: fightingTypeC,
 
-    superEff: ["ice", "steel", "dark", "normal", "rock"],
+    superEff: ["ice",  "dark", "normal","steel","rock"],
     notEff: ["flying", "poison", "psychic", "bug", "fairy"],
     noFx: ["ghost"],
 

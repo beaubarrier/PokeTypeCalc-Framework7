@@ -13,8 +13,6 @@ import {
 import TypeData from './TypeData'
 import './css/TypeCalc.css'
 import './css/app.scss'
-// import "nes.css/css/nes.min.css";
-import bugBtn from './assets/Buttons/bugTypeC.png'
 
 const TypeDataFunc = () => {
   const [type1nameImg, setType1NameImg] = useState([])
@@ -78,7 +76,7 @@ const TypeDataFunc = () => {
               width: '15%',
               border: 'none',
               background: 'none',
-              margin: '3px 1px 2px 2px'
+              margin: '3px 10px 2px 2px'
             }}
           >
             <img
@@ -116,7 +114,7 @@ const TypeDataFunc = () => {
               width: '15%',
               border: 'none',
               background: 'none',
-              margin: '3px 1px 2px 2px'
+              margin: '3px 10px 2px 2px'
             }}
           >
             <img
@@ -140,11 +138,28 @@ const TypeDataFunc = () => {
           clearTypes()
           setCurrentTypeBtn('type1')
         }}
+        style={{ margin: '20px' }}
       >
         Reset
       </Button>
     )
   }
+  const ColoredLine = ({ color }) => (
+    <hr
+      id='hrLine'
+      style={{
+        color: 'black',
+        backgroundColor: 'rgb(57, 57, 57)',
+        height: 1,
+        borderRadius: 10,
+        width: '90%',
+        border: 'none'
+        // marginTop: '100px',
+        // marginBottom: '60px',
+        // marginRight: '5.5%'
+      }}
+    />
+  )
 
   useEffect(() => {
     let weakImgArr = []
@@ -262,7 +277,7 @@ const TypeDataFunc = () => {
               width: '20px',
               border: 'none',
               background: 'none',
-              float: 'right',
+              float: 'center',
               marginLeft: '2px',
               marginTop: '2px'
             }}
@@ -287,7 +302,7 @@ const TypeDataFunc = () => {
               width: '20px',
               border: 'none',
               background: 'none',
-              float: 'right',
+              float: 'center',
               marginLeft: '2px',
               marginTop: '2px'
             }}
@@ -312,7 +327,7 @@ const TypeDataFunc = () => {
               width: '20px',
               border: 'none',
               background: 'none',
-              float: 'right',
+              float: 'center',
               marginLeft: '2px',
               marginTop: '2px'
             }}
@@ -337,7 +352,7 @@ const TypeDataFunc = () => {
               width: '20px',
               border: 'none',
               background: 'none',
-              float: 'left',
+              float: 'center',
               marginLeft: '2px',
               marginTop: '2px'
             }}
@@ -362,7 +377,7 @@ const TypeDataFunc = () => {
               width: '20px',
               border: 'none',
               background: 'none',
-              float: 'left',
+              float: 'center',
               marginLeft: '2px',
               marginTop: '2px'
             }}
@@ -387,7 +402,7 @@ const TypeDataFunc = () => {
               width: '20px',
               border: 'none',
               background: 'none',
-              float: 'left',
+              float: 'center',
               marginLeft: '2px',
               marginTop: '2px'
             }}
@@ -455,28 +470,33 @@ const TypeDataFunc = () => {
 
   return (
     <div className='grid-demo '>
-      {/* <Page className='grid-demo'> */}
       <Block style={{ marginTop: '48%', marginLeft: '7%', marginRight: '7%' }}>
         <Row noGap>
-          <Col width='33' style={{ float: 'right' }}>
-            <div style={{ float: 'right' }}>{type1nameImg}</div>
+          <Col width='33'>
+            <div style={{ float: 'center' }}>
+              {type1nameImg}
+              {ColoredLine('black')}
+            </div>
           </Col>
-          <Col width='20'>Type</Col>
-          <Col width='33' style={{ float: 'left' }}>
-            <div style={{ float: 'left' }}>{type2nameImg}</div>
+          <Col width='20'></Col>
+          <Col width='33'>
+            <div style={{ float: 'center' }}>
+              {type2nameImg}
+              {ColoredLine('black')}
+            </div>
           </Col>
         </Row>
-        <Row noGap id='superEffRow'>
-          <Col id='type1SupEffCol' style={{ float: 'right' }}>
-            {type1AtkImgSE}
-          </Col>
+
+        <Row noGap>
+          <Col id='type1SupEffCol'>{type1AtkImgSE}</Col>
           <Col width='20' id='type1SupEffTitle' style={{ fontSize: '10px' }}>
             Super <br></br>Effective
           </Col>
           <Col id='type2SupEffCol'>{type2AtkImgSE}</Col>
         </Row>
-        <Row noGap id='superEffRow'>
-          <Col id='type1SupEffCol' style={{ float: 'right' }}>
+
+        <Row noGap>
+          <Col id='type1SupEffCol' style={{ float: 'center' }}>
             {type1AtkImgNE}
           </Col>
           <Col width='20' id='type1SupEffTitle' style={{ fontSize: '10px' }}>
@@ -486,21 +506,9 @@ const TypeDataFunc = () => {
             {type2AtkImgNE}
           </Col>
         </Row>
-        {/* <Row noGap id='notVeryEffRow'>
-          <Col id='type1notVeryEffCol' style={{ float: 'right' }}>
-            <img src={bugBtn} style={{ height: '20px', float: 'right' }} />
-          </Col>
-          <Col id='type1notVeryEffTitle' style={{ fontSize: '10px' }}>
-            <p>
-              Not Very<br></br> Effective
-            </p>
-          </Col>
-          <Col id='type2notVeryEffCol'>
-            <img src={bugBtn} style={{ height: '20px', float: 'left' }} />
-          </Col>
-        </Row> */}
-        <Row noGap id='superEffRow'>
-          <Col id='type1SupEffCol' style={{ float: 'right' }}>
+
+        <Row noGap>
+          <Col id='type1SupEffCol' style={{ float: 'center' }}>
             {type1AtkImgNF}
           </Col>
           <Col width='20' id='type1SupEffTitle' style={{ fontSize: '10px' }}>
@@ -508,17 +516,9 @@ const TypeDataFunc = () => {
           </Col>
           <Col id='type2SupEffCol'>{type2AtkImgNF}</Col>
         </Row>
-        {/* <Row noGap id='noEffRow'>
-          <Col id='type1noEffCol' style={{ float: 'right' }}>
-            <img src={bugBtn} style={{ height: '20px', float: 'right' }} />
-          </Col>
-          <Col id='type1noEffTitle' style={{ fontSize: '10px' }}>
-            <p>No Effect</p>
-          </Col>
-          <Col id='type2noEffCol'>
-            <img src={bugBtn} style={{ height: '20px', float: 'left' }} />
-          </Col>
-        </Row> */}
+
+        {ColoredLine('black')}
+
         <Row className='center'>
           <Col>
             <p>Weakness</p>
@@ -527,7 +527,6 @@ const TypeDataFunc = () => {
 
           <Col>
             <p>Resistance</p>
-
             {resistStImg}
           </Col>
 
@@ -536,10 +535,12 @@ const TypeDataFunc = () => {
             {immuneStImg}
           </Col>
         </Row>
-        <Row className='center'>{clearTypeFunc()}</Row>
-        <Row>{btnRender()}</Row>
+        {ColoredLine('black')}
+        <div style={{ marginTop: '20%' }}>
+          <Row className='center'>{clearTypeFunc()}</Row>
+          <Row>{btnRender()}</Row>
+        </div>
       </Block>
-      {/* </Page> */}
     </div>
   )
 }

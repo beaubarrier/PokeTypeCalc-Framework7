@@ -5,6 +5,7 @@ body {
 }
 
 #mainContainer {
+  position: absolute;
   display: inline-flex;
   justify-content: center;
   width: 100%;
@@ -75,12 +76,12 @@ body {
   grid-row-end: 8;
   width: 100%;
 }
-#titleBlock{
+/* #titleBlock{
   margin-top: 30%;
-}
-.superEffective {
+} */
+/* .superEffective {
   background-color: rgb(200, 225, 190);
-}
+} */
 .notVeryEffective {
   background-color: rgb(225, 190, 190);
 }
@@ -90,5 +91,4 @@ body {
  justify-content: center;
  text-justify: center;
  text-align: center;
- /* margin-left: 15%; */
 }

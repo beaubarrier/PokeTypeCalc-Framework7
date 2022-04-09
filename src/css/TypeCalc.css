@@ -75,10 +75,20 @@ body {
   grid-row-end: 8;
   width: 100%;
 }
-
+#titleBlock{
+  margin-top: 30%;
+}
 .superEffective {
   background-color: rgb(200, 225, 190);
 }
 .notVeryEffective {
   background-color: rgb(225, 190, 190);
+}
+
+.center {
+ display:flex;
+ justify-content: center;
+ text-justify: center;
+ text-align: center;
+ /* margin-left: 15%; */
 }

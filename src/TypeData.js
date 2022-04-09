@@ -17,19 +17,39 @@ import rockType from "./Assets/rockType.png";
 import psychicType from "./Assets/psychicType.png";
 import fairyType from "./Assets/fairyType.png";
 
+import fireTypeC from "./Assets/Buttons/fireTypeC.png";
+import grassTypeC from "./Assets/Buttons/grassTypeC.png";
+import waterTypeC from "./Assets/Buttons/waterTypeC.png";
+import normalTypeC from "./Assets/Buttons/normalTypeC.png";
+import fightingTypeC from "./Assets/Buttons/fightingTypeC.png";
+import flyingTypeC from "./Assets/Buttons/flyingTypeC.png";
+import bugTypeC from "./Assets/Buttons/bugTypeC.png";
+import iceTypeC from "./Assets/Buttons/iceTypeC.png";
+import poisonTypeC from "./Assets/Buttons/poisonTypeC.png";
+import ghostTypeC from "./Assets/Buttons/ghostTypeC.png";
+import dragonTypeC from "./Assets/Buttons/dragonTypeC.png";
+import groundTypeC from "./Assets/Buttons/groundTypeC.png";
+import steelTypeC from "./Assets/Buttons/steelTypeC.png";
+import electricTypeC from "./Assets/Buttons/electricTypeC.png";
+import darkTypeC from "./Assets/Buttons/darkTypeC.png";
+import rockTypeC from "./Assets/Buttons/rockTypeC.png";
+import psychicTypeC from "./Assets/Buttons/psychicTypeC.png";
+import fairyTypeC from "./Assets/Buttons/fairyTypeC.png";
+
 const TypeData = [
   {
     id: 0,
     name: "fire",
 
     imgSrc: fireType,
+    imgSrcC: fireTypeC,
 
     superEff: ["grass", "steel", "bug", "ice"],
     notEff: ["rock", "water", "fire", "dragon"],
     noFx: [],
 
     weak: ["water", "rock", "ground"],
-    resist: ["fire", "grass", "ice", "steel"],
+    resist: ["fire", "grass", "ice", "steel", "fairy"],
     immune: [],
   },
   {
@@ -37,6 +57,7 @@ const TypeData = [
     name: "normal",
 
     imgSrc: normalType,
+    imgSrcC: normalTypeC,
 
     superEff: [],
     notEff: ["rock", "steel"],
@@ -49,7 +70,9 @@ const TypeData = [
   {
     id: 2,
     name: "water",
+
     imgSrc: waterType,
+    imgSrcC: waterTypeC,
 
     superEff: ["fire", "ground", "rock"],
     notEff: ["water", "grass", "dragon"],
@@ -62,7 +85,9 @@ const TypeData = [
   {
     id: 3,
     name: "electric",
+
     imgSrc: electricType,
+    imgSrcC: electricTypeC,
 
     superEff: ["water", "flying"],
     notEff: ["electric", "grass", "dragon"],
@@ -75,7 +100,9 @@ const TypeData = [
   {
     id: 4,
     name: "grass",
+
     imgSrc: grassType,
+    imgSrcC: grassTypeC,
 
     superEff: ["rock", "ground", "water"],
     notEff: ["fire", "ice", "poison", "bug", "flying", "dragon", "steel"],
@@ -88,7 +115,9 @@ const TypeData = [
   {
     id: 5,
     name: "ice",
+
     imgSrc: iceType,
+    imgSrcC: iceTypeC,
 
     superEff: ["grass", "ground", "flying", "dragon"],
     notEff: ["fire", "water", "ice", "steel"],
@@ -101,7 +130,9 @@ const TypeData = [
   {
     id: 6,
     name: "fighting",
+
     imgSrc: fightingType,
+    imgSrcC: fightingTypeC,
 
     superEff: ["ice", "steel", "dark", "normal", "rock"],
     notEff: ["flying", "poison", "psychic", "bug", "fairy"],
@@ -114,7 +145,9 @@ const TypeData = [
   {
     id: 7,
     name: "flying",
+
     imgSrc: flyingType,
+    imgSrcC: flyingTypeC,
 
     superEff: ["fighting", "bug", "grass"],
     notEff: ["rock", "steel", "electric"],
@@ -127,7 +160,9 @@ const TypeData = [
   {
     id: 8,
     name: "poison",
+
     imgSrc: poisonType,
+    imgSrcC: poisonTypeC,
 
     superEff: ["fairy", "grass"],
     notEff: ["poison", "ground", "rock", "ghost"],
@@ -140,7 +175,9 @@ const TypeData = [
   {
     id: 9,
     name: "ground",
+
     imgSrc: groundType,
+    imgSrcC: groundTypeC,
 
     superEff: ["poison", "rock", "steel", "fire", "electric"],
     notEff: ["bug", "grass"],
@@ -153,7 +190,9 @@ const TypeData = [
   {
     id: 10,
     name: "rock",
+
     imgSrc: rockType,
+    imgSrcC: rockTypeC,
 
     superEff: ["ice", "flying", "bug", "fire"],
     notEff: ["fighting", "ground", "steel"],
@@ -166,7 +205,9 @@ const TypeData = [
   {
     id: 11,
     name: "bug",
+
     imgSrc: bugType,
+    imgSrcC: bugTypeC,
 
     superEff: ["psychic", "dark"],
     notEff: ["fighting", "ghost", "poison", "fling", "steel"],
@@ -179,7 +220,9 @@ const TypeData = [
   {
     id: 12,
     name: "ghost",
+
     imgSrc: ghostType,
+    imgSrcC: ghostTypeC,
 
     superEff: ["psychic", "ghost"],
     notEff: ["dark"],
@@ -192,7 +235,9 @@ const TypeData = [
   {
     id: 13,
     name: "psychic",
+
     imgSrc: psychicType,
+    imgSrcC: psychicTypeC,
 
     superEff: ["fighting", "poison"],
     notEff: ["psychic", "steel"],
@@ -205,7 +250,9 @@ const TypeData = [
   {
     id: 14,
     name: "dark",
+
     imgSrc: darkType,
+    imgSrcC: darkTypeC,
 
     superEff: ["psychic", "ghost"],
     notEff: ["fighting", "dark", "fairy"],
@@ -218,7 +265,9 @@ const TypeData = [
   {
     id: 15,
     name: "fairy",
+
     imgSrc: fairyType,
+    imgSrcC: fairyTypeC,
 
     superEff: ["fighting", "dragon", "dark"],
     notEff: ["poison", "steel", "fire"],
@@ -231,7 +280,9 @@ const TypeData = [
   {
     id: 16,
     name: "steel",
+
     imgSrc: steelType,
+    imgSrcC: steelTypeC,
 
     superEff: ["rock", "ice", "fairy"],
     notEff: ["steel", "electric", "water", "fire"],
@@ -255,7 +306,9 @@ const TypeData = [
   {
     id: 17,
     name: "dragon",
+
     imgSrc: dragonType,
+    imgSrcC: dragonTypeC,
 
     superEff: ["dragon"],
     notEff: ["steel"],

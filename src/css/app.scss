@@ -11,10 +11,12 @@
   --f7-table-body-font-size: 12px;
   --f7-table-body-cell-height: 18px;
   --f7-table-cell-padding-horizontal: 0px;
-  --f7-card-margin-horizontal: 16px;
+
+  --f7-card-margin-horizontal: 0px; // Card Margin horizontal ***
   --f7-card-border-radius: 10px;
   --f7-card-bg-color: transparent;
   --f7-card-header-background-color: rgba(0, 255, 157, 0.1);
+
   --f7-table-footer-font-size: 12px;
   --f7-table-input-height: 24px;
   --f7-table-input-font-size: 14px;
@@ -28,7 +30,7 @@
 }
 .grid-demo div[class*='col'] {
   // background: #fff;  
-  position: fixed; // I may need to make this absolute/fixed to keep buttons in same spot, then adjust position for each element.
+  position: relative; // I may need to make this absolute/fixed to keep buttons in same spot, then adjust position for each element.
   text-align: center;
   color: #000;
   // border: 1px solid #ddd;
@@ -60,7 +62,7 @@ body {
 }
 .page {
   background: rgb(220, 220, 220);
-  background-image: url(../assets/rotomBackg.jpg);
+  background-image: url(../assets/dexBG.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   // background-position: 100%;
@@ -80,7 +82,21 @@ body {
 // }
 #btnBlock {
 }
-
+.center {
+ display:flex;
+ justify-content: center;
+ text-justify: center;
+ text-align: center;
+}
+#resetBtnContainer {
+  justify-self: center;
+  /* border: 1px solid; */
+  width: 49%;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
 .type1Name {
   // font-size: 200px;
 }

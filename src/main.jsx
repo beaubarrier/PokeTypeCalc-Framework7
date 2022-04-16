@@ -11,7 +11,7 @@ import {
   Button
 } from 'framework7-react'
 import TypeData from './TypeData'
-import './css/TypeCalc.css'
+// import './css/TypeCalc.css'
 import './css/app.scss'
 
 const TypeDataFunc = () => {
@@ -38,7 +38,6 @@ const TypeDataFunc = () => {
   const [immuneSt, setImmuneSt] = useState([])
   const [immuneStImg, setImmuneStImg] = useState([])
   const [currentTypeBtn, setCurrentTypeBtn] = useState('type1')
-  // const [circleType, setCircleType] = useState([])
 
   const nameArr = TypeData.map(e => {
     return e
@@ -132,23 +131,25 @@ const TypeDataFunc = () => {
   }
   const clearTypeFunc = () => {
     return (
-      <Button
-        className='button-round button-fill	button-raised	button-outline	'
-        onClick={() => {
-          clearTypes()
-          setCurrentTypeBtn('type1')
-        }}
-        style={{ margin: '20px' }}
-      >
-        Reset
-      </Button>
+      <div className='center'>
+        <Button
+          className='button-round button-fill	button-raised	button-outline 	'
+          onClick={() => {
+            clearTypes()
+            setCurrentTypeBtn('type1')
+          }}
+          style={{ margin: '20px' }}
+        >
+          Reset
+        </Button>
+      </div>
     )
   }
   const ColoredLine = ({ color }) => (
     <hr
       id='hrLine'
       style={{
-        color: 'black',
+        color: { color },
         backgroundColor: 'rgb(57, 57, 57)',
         height: 1,
         borderRadius: 10,
@@ -469,76 +470,151 @@ const TypeDataFunc = () => {
   }
 
   return (
-    <div className='grid-demo '>
-      <Block style={{ marginTop: '48%', marginLeft: '7%', marginRight: '7%' }}>
-        <Row noGap>
-          <Col width='33'>
-            <div style={{ float: 'center' }}>
-              {type1nameImg}
-              {ColoredLine('black')}
+    <div className='grid-demo ' style={{ marginTop: '20px' }}>
+      <Block style={{ marginTop: '20px' }}>
+        <Row
+          noGap
+          style={{
+            // maxWidth: '160px',
+            // minWidth: '150px',
+            minHeight: '100px',
+            minHeight: '100px',
+            marginTop: '-8%',
+            width: '100%'
+          }}
+          className='center'
+        >
+          {/* Type icons */}
+          <Col>
+            <div style={{ marginTop: '42%' }}>
+              <div style={{}}>{type1nameImg}</div>
             </div>
           </Col>
           <Col width='20'></Col>
-          <Col width='33'>
-            <div style={{ float: 'center' }}>
-              {type2nameImg}
-              {ColoredLine('black')}
+          <Col>
+            <div style={{ marginTop: '42%' }}>
+              <div style={{}}>{type2nameImg}</div>
             </div>
           </Col>
         </Row>
 
-        <Row noGap>
-          <Col id='type1SupEffCol'>{type1AtkImgSE}</Col>
-          <Col width='20' id='type1SupEffTitle' style={{ fontSize: '10px' }}>
-            Super <br></br>Effective
-          </Col>
-          <Col id='type2SupEffCol'>{type2AtkImgSE}</Col>
-        </Row>
+        <Card style={{ width: '96%' }}>
+          <Card
+            style={{
+              // maxWidth: '318px',
+              // minWidth: '318px',
+              maxHeight: '60px',
+              minHeight: '60px',
+              marginTop: '-10%'
+            }}
+          >
+            <Row
+              noGap
+              style={
+                {
+                  // maxWidth: '318px',
+                  // minWidth: '318px',
+                  // minHeight: '80px',
+                  // minHeight: '80px',
+                  // marginTop: '-10%'
+                }
+              }
+              className='center'
+            >
+              <Col style={{ float: 'center' }}>{type1AtkImgSE}</Col>
 
-        <Row noGap>
-          <Col id='type1SupEffCol' style={{ float: 'center' }}>
-            {type1AtkImgNE}
-          </Col>
-          <Col width='20' id='type1SupEffTitle' style={{ fontSize: '10px' }}>
-            Not Very <br></br>Effective
-          </Col>
-          <Col id='type2SupEffCol' style={{}}>
-            {type2AtkImgNE}
-          </Col>
-        </Row>
+              <Col width='20' style={{ fontSize: '10px', marginTop: '' }}>
+                Super <br></br>Effective
+              </Col>
 
-        <Row noGap>
-          <Col id='type1SupEffCol' style={{ float: 'center' }}>
-            {type1AtkImgNF}
-          </Col>
-          <Col width='20' id='type1SupEffTitle' style={{ fontSize: '10px' }}>
-            No <br></br>Effect
-          </Col>
-          <Col id='type2SupEffCol'>{type2AtkImgNF}</Col>
-        </Row>
+              <Col id='type2SupEffCol'>{type2AtkImgSE}</Col>
+            </Row>
+          </Card>
+          <Card
+            style={{
+              // maxWidth: '318px',
+              // minWidth: '318px',
+              maxHeight: '60px',
+              minHeight: '60px',
+              marginTop: '-5%'
+            }}
+          >
+            <Row
+              noGap
+              style={
+                {
+                  // maxWidth: '318px',
+                  // minWidth: '318px',
+                  // minHeight: '90px',
+                  // minHeight: '90px'
+                }
+              }
+              className='center'
+            >
+              <Col>{type1AtkImgNE}</Col>
+              <Col width='20' style={{ fontSize: '10px' }}>
+                Not Very <br></br>Effective
+              </Col>
+              <Col id='type2SupEffCol' style={{}}>
+                {type2AtkImgNE}
+              </Col>
+            </Row>
+          </Card>
 
-        {ColoredLine('black')}
+          <Row
+            noGap
+            style={{
+              // maxWidth: '318px',
+              // minWidth: '318px'
+              maxHeight: '40px',
+              minHeight: '40px ',
+              marginTop: '-5%'
+            }}
+            className='center'
+          >
+            <Col id='type1SupEffCol' style={{ float: 'center' }}>
+              {type1AtkImgNF}
+            </Col>
+            <Col width='20' style={{ fontSize: '10px' }}>
+              No <br></br>Effect
+            </Col>
+            <Col id='type2SupEffCol'>{type2AtkImgNF}</Col>
+          </Row>
+        </Card>
+        {/* <div style={{ marginTop: '-30px' }}>{ColoredLine('black')}</div> */}
 
-        <Row className='center'>
-          <Col>
-            <p>Weakness</p>
-            {weakStImg}
-          </Col>
+        <Card style={{ width: '96%', minHeight: '130px', maxHeight: '130px' }}>
+          <Row
+            style={{
+              // maxWidth: '318px',
+              // minWidth: '318px',
+              // minHeight: '148px',
+              // maxHeight: '148px',
+              marginTop: '-6%'
+            }}
+          >
+            <Col>
+              <p>Weakness</p>
+              {weakStImg}
+            </Col>
 
-          <Col>
-            <p>Resistance</p>
-            {resistStImg}
-          </Col>
+            <Col width='40'>
+              <p>Resistance</p>
+              {resistStImg}
+            </Col>
 
-          <Col>
-            <p>No Effect</p>
-            {immuneStImg}
-          </Col>
-        </Row>
-        {ColoredLine('black')}
-        <div style={{ marginTop: '20%' }}>
+            <Col>
+              <p>No Effect</p>
+              {immuneStImg}
+            </Col>
+          </Row>
+        </Card>
+
+        <div style={{ marginTop: '-9%' }}>
           <Row className='center'>{clearTypeFunc()}</Row>
-          <Row>{btnRender()}</Row>
+          <Row className='center' style={{ maxWidth: '92%', marginTop: '-2%' }}>
+            {btnRender()}
+          </Row>
         </div>
       </Block>
     </div>

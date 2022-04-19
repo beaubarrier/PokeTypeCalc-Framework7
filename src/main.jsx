@@ -11,7 +11,6 @@ import {
   Button
 } from 'framework7-react'
 import TypeData from './TypeData'
-// import './css/TypeCalc.css'
 import './css/app.scss'
 
 const TypeDataFunc = () => {
@@ -58,6 +57,7 @@ const TypeDataFunc = () => {
       <div id='type1Btn' key='type1Btn'>
         {TypeData.map(type => (
           <button
+            // id='buttonRow'
             key={`typeBtn${type.id}`}
             className={type.name}
             src={type.imgSrc}
@@ -96,6 +96,7 @@ const TypeDataFunc = () => {
       <div id='type2Btn' key='type2Btn'>
         {TypeData.map(type => (
           <button
+            // id='buttonRow'
             key={`typeBtn${type.id}`}
             className={type.name}
             src={type.imgSrc}
@@ -470,112 +471,67 @@ const TypeDataFunc = () => {
   }
 
   return (
-    <div className='grid-demo ' style={{ marginTop: '20px' }}>
-      <Block style={{ marginTop: '20px' }}>
-        <Row
-          noGap
-          style={{
-            // maxWidth: '160px',
-            // minWidth: '150px',
-            minHeight: '100px',
-            minHeight: '100px',
-            marginTop: '-8%',
-            width: '100%'
-          }}
-          className='center'
-        >
+    <div className='grid-demo ' id='superContainerIphone'>
+      <Block id='mainBlock'>
+        <Row noGap className='center rowHeight'>
           {/* Type icons */}
           <Col>
-            <div style={{ marginTop: '42%' }}>
-              <div style={{}}>{type1nameImg}</div>
+            <div className='typeNameMargin'>
+              <div>{type1nameImg}</div>
             </div>
           </Col>
           <Col width='20'></Col>
           <Col>
-            <div style={{ marginTop: '42%' }}>
-              <div style={{}}>{type2nameImg}</div>
+            <div className='typeNameMargin'>
+              <div>{type2nameImg}</div>
             </div>
           </Col>
         </Row>
 
-        <Card style={{ width: '96%' }}>
-          <Card
-            style={{
-              // maxWidth: '318px',
-              // minWidth: '318px',
-              maxHeight: '60px',
-              minHeight: '60px',
-              marginTop: '-10%'
-            }}
-          >
+        <Card id='atkCard'>
+          <div id='supEffCard'>
             <Row
+              id='superEffRow'
               noGap
-              style={
-                {
-                  // maxWidth: '318px',
-                  // minWidth: '318px',
-                  // minHeight: '80px',
-                  // minHeight: '80px',
-                  // marginTop: '-10%'
-                }
-              }
-              className='center'
+              className='center rowHeight
+'
             >
-              <Col style={{ float: 'center' }}>{type1AtkImgSE}</Col>
+              <Col className='center'>{type1AtkImgSE}</Col>
 
-              <Col width='20' style={{ fontSize: '10px', marginTop: '' }}>
+              <Col width='20' className='center'>
                 Super <br></br>Effective
               </Col>
 
               <Col id='type2SupEffCol'>{type2AtkImgSE}</Col>
             </Row>
-          </Card>
-          <Card
-            style={{
-              // maxWidth: '318px',
-              // minWidth: '318px',
-              maxHeight: '60px',
-              minHeight: '60px',
-              marginTop: '-5%'
-            }}
-          >
-            <Row
-              noGap
-              style={
-                {
-                  // maxWidth: '318px',
-                  // minWidth: '318px',
-                  // minHeight: '90px',
-                  // minHeight: '90px'
-                }
-              }
-              className='center'
-            >
+          </div>
+          <div className='superEffCard'>
+            <Row noGap className='center rowHeight'>
               <Col>{type1AtkImgNE}</Col>
-              <Col width='20' style={{ fontSize: '10px' }}>
+              <Col className='center' width='20'>
                 Not Very <br></br>Effective
               </Col>
-              <Col id='type2SupEffCol' style={{}}>
-                {type2AtkImgNE}
-              </Col>
+              <Col>{type2AtkImgNE}</Col>
             </Row>
-          </Card>
+          </div>
 
           <Row
             noGap
-            style={{
-              // maxWidth: '318px',
-              // minWidth: '318px'
-              maxHeight: '40px',
-              minHeight: '40px ',
-              marginTop: '-5%'
-            }}
-            className='center'
+            style={
+              {
+                // maxWidth: '318px',
+                // minWidth: '318px'
+                // maxHeight: '40px',
+                // minHeight: '40px ',
+                // marginTop: '-5%'
+              }
+            }
+            className='center rowHeight'
           >
             <Col id='type1SupEffCol' style={{ float: 'center' }}>
               {type1AtkImgNF}
             </Col>
-            <Col width='20' style={{ fontSize: '10px' }}>
+            <Col style={{ fontSize: '10px' }}>
               No <br></br>Effect
             </Col>
             <Col id='type2SupEffCol'>{type2AtkImgNF}</Col>
@@ -612,7 +568,11 @@ const TypeDataFunc = () => {
 
         <div style={{ marginTop: '-9%' }}>
           <Row className='center'>{clearTypeFunc()}</Row>
-          <Row className='center' style={{ maxWidth: '92%', marginTop: '-2%' }}>
+          <Row
+            id='buttonRow'
+            className='center'
+            style={{ maxWidth: '85%', marginTop: '-2%' }}
+          >
             {btnRender()}
           </Row>
         </div>

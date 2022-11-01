@@ -8,7 +8,11 @@ import {
   Col,
   Block,
   Card,
-  Button
+  Button,
+  Popover,
+  List,
+  ListItem,
+  Link
 } from 'framework7-react'
 import TypeData from './TypeData'
 import './css/app.scss'
@@ -57,9 +61,8 @@ const TypeDataFunc = () => {
       <div id='type1Btn' key='type1Btn'>
         {TypeData.map(type => (
           <button
-            // id='buttonRow'
             key={`typeBtn${type.id}`}
-            className={type.name}
+            className={`${type.name} typeBtnStyle`}
             src={type.imgSrc}
             onClick={() => {
               setType1Name(type.name)
@@ -71,21 +74,8 @@ const TypeDataFunc = () => {
               setImmuneSt(type.immune)
               setCurrentTypeBtn('type2')
             }}
-            style={{
-              width: '15%',
-              border: 'none',
-              background: 'none',
-              margin: '3px 10px 2px 2px'
-            }}
           >
-            <img
-              alt={`typeBtn${type.id}`}
-              key={type.name}
-              src={type.imgSrc}
-              // style={{
-              //   width: "60px",
-              // }}
-            />
+            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrc} />
           </button>
         ))}
       </div>
@@ -96,9 +86,8 @@ const TypeDataFunc = () => {
       <div id='type2Btn' key='type2Btn'>
         {TypeData.map(type => (
           <button
-            // id='buttonRow'
             key={`typeBtn${type.id}`}
-            className={type.name}
+            className={`${type.name} typeBtnStyle`}
             src={type.imgSrc}
             onClick={() => {
               setType2Name(type.name)
@@ -110,21 +99,8 @@ const TypeDataFunc = () => {
               adjustImmu(type)
               setCurrentTypeBtn('clear')
             }}
-            style={{
-              width: '15%',
-              border: 'none',
-              background: 'none',
-              margin: '3px 10px 2px 2px'
-            }}
           >
-            <img
-              alt={`typeBtn${type.id}`}
-              key={type.name}
-              src={type.imgSrc}
-              // style={{
-              //   width: "100%",
-              // }}
-            />
+            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrc} />
           </button>
         ))}
       </div>
@@ -471,112 +447,120 @@ const TypeDataFunc = () => {
   }
 
   return (
-    <div className='grid-demo ' id='superContainerIphone'>
-      <Block id='mainBlock'>
-        <Row noGap className='center rowHeight'>
-          {/* Type icons */}
-          <Col>
-            <div className='typeNameMargin'>
-              <div>{type1nameImg}</div>
-            </div>
-          </Col>
-          <Col width='20'></Col>
-          <Col>
-            <div className='typeNameMargin'>
-              <div>{type2nameImg}</div>
-            </div>
-          </Col>
-        </Row>
+    <div>
+      <Button fill popoverOpen='.popover-menu'>
+        Set Type 1
+      </Button>
 
-        <Card id='atkCard'>
-          <div id='supEffCard'>
-            <Row
-              id='superEffRow'
-              noGap
-              className='center rowHeight
-'
-            >
-              <Col className='center'>{type1AtkImgSE}</Col>
+      <Popover className='popover-menu'>
+        <List style={{ fontSize: '10pt' }}>
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'red', height: '3em' }}
+            title='Fire'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'blue', height: '3em' }}
+            title='Water'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'green', height: '3em' }}
+            title='Grass'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'yellow', height: '3em' }}
+            title='Electric'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'teal', height: '3em' }}
+            title='Flying'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'tan', height: '3em' }}
+            title='Rock'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'brown', height: '3em' }}
+            title='Ground'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'lightblue', height: '3em' }}
+            title='Ice'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'gray', height: '3em' }}
+            title='Steel'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'Purple', color: 'white', height: '3em' }}
+            title='Ghost'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'Pink', height: '3em' }}
+            title='Fairy'
+          />
 
-              <Col width='20' className='center'>
-                Super <br></br>Effective
-              </Col>
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'black', color: 'white', height: '3em' }}
+            title='Dark'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'magenta', height: '3em' }}
+            title='Psychic'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'lightgreen', height: '3em' }}
+            title='Bug'
+          />
 
-              <Col id='type2SupEffCol'>{type2AtkImgSE}</Col>
-            </Row>
-          </div>
-          <div className='superEffCard'>
-            <Row noGap className='center rowHeight'>
-              <Col>{type1AtkImgNE}</Col>
-              <Col className='center' width='20'>
-                Not Very <br></br>Effective
-              </Col>
-              <Col>{type2AtkImgNE}</Col>
-            </Row>
-          </div>
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'Purple', color: 'white', height: '3em' }}
+            title='Poison'
+          />
 
-          <Row
-            noGap
-            style={
-              {
-                // maxWidth: '318px',
-                // minWidth: '318px'
-                // maxHeight: '40px',
-                // minHeight: '40px ',
-                // marginTop: '-5%'
-              }
-            }
-            className='center rowHeight'
-          >
-            <Col id='type1SupEffCol' style={{ float: 'center' }}>
-              {type1AtkImgNF}
-            </Col>
-            <Col style={{ fontSize: '10px' }}>
-              No <br></br>Effect
-            </Col>
-            <Col id='type2SupEffCol'>{type2AtkImgNF}</Col>
-          </Row>
-        </Card>
-        {/* <div style={{ marginTop: '-30px' }}>{ColoredLine('black')}</div> */}
-
-        <Card style={{ width: '96%', minHeight: '130px', maxHeight: '130px' }}>
-          <Row
-            style={{
-              // maxWidth: '318px',
-              // minWidth: '318px',
-              // minHeight: '148px',
-              // maxHeight: '148px',
-              marginTop: '-6%'
-            }}
-          >
-            <Col>
-              <p>Weakness</p>
-              {weakStImg}
-            </Col>
-
-            <Col width='40'>
-              <p>Resistance</p>
-              {resistStImg}
-            </Col>
-
-            <Col>
-              <p>No Effect</p>
-              {immuneStImg}
-            </Col>
-          </Row>
-        </Card>
-
-        <div style={{ marginTop: '-9%' }}>
-          <Row className='center'>{clearTypeFunc()}</Row>
-          <Row
-            id='buttonRow'
-            className='center'
-            style={{ maxWidth: '85%', marginTop: '-2%' }}
-          >
-            {btnRender()}
-          </Row>
-        </div>
-      </Block>
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'white', height: '3em' }}
+            title='Normal'
+          />
+          <ListItem
+            link='#'
+            popoverClose
+            style={{ background: 'maroon', height: '3em' }}
+            title='Fighting'
+          />
+        </List>
+      </Popover>
     </div>
   )
 }

@@ -58,11 +58,11 @@
 //   --f7-bars-border-color: rgba(0, 0, 0, 0.25);
 // }
 body {
-  background-image: url(../assets/rotomBackg.jpg);
+  // background-image: url(../assets/rotomBackg.jpg);
 }
 .page {
   background: rgb(220, 220, 220);
-  background-image: url(../assets/dexBG.png);
+  // background-image: url(../assets/dexBG.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   // background-position: 100%;
@@ -81,31 +81,46 @@ body {
   margin-top: 48%;
 }
 
+#defCard{
+  width:96%;
+  min-height: 130px;
+  max-height: 130px;
+}
 #atkCard{
   width: 96%;
+}
+#defRowMargin{
+  margin-top: -6%;
 }
 #supEffCard{
   // max-height: 30%;
   // min-height: 30%;
   margin-top: -10%;
 }
-#superContainer{
-  // width:100%;
-  // height:100%;
-}
+
 .rowHeight{
   min-height: 63px;
   max-height: 63px;
 }
+.typeBtnStyle{
+  width: 15%;
+  border: none;
+  background: none;
+  margin: 3px 10px 2px 2px;
+}
 #superEffRow{
-  
   // width: 100%;
   margin-top: 10%;
 }
 #buttonRow{
   // justify-content: flex-end;
   // align-content: flex-end;
-position:absolute;
+  position:absolute;
   bottom: -130px;
+  max-width: 85%;
+  margin-top: -2%;
  
+}
+#btnTopMargin{
+  margin-top:-9%
 }

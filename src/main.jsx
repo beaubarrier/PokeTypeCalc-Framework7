@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   Navbar,
   Page,
+  View,
   PageContent,
   BlockTitle,
   Row,
@@ -12,7 +13,10 @@ import {
   Popover,
   List,
   ListItem,
-  Link
+  Link,
+  Popup,
+  NavRight,
+  NavLeft
 } from 'framework7-react'
 import TypeData from './TypeData'
 import './css/app.scss'
@@ -41,6 +45,39 @@ const TypeDataFunc = () => {
   const [immuneSt, setImmuneSt] = useState([])
   const [immuneStImg, setImmuneStImg] = useState([])
   const [currentTypeBtn, setCurrentTypeBtn] = useState('type1')
+  const popup = useRef(null)
+  const onPageBeforeRemove = () => {
+    // Destroy popup when page removed
+    if (popup.current) popup.current.destroy()
+  }
+
+  const createPopup = () => {
+    // Create popup
+    if (!popup.current) {
+      popup.current = f7.popup.create({
+        content: `
+          <div class="popup">
+            <div class="page">
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <div class="navbar-bg"></div>
+                  <div class="title">Dynamic Popup</div>
+                  <div class="right"><a href="#" class="link popup-close">Close</a></div>
+                </div>
+              </div>
+              <div class="page-content">
+                <div class="block">
+                  <p>Choose a type.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `.trim()
+      })
+    }
+    // Open it
+    popup.current.open()
+  }
 
   const nameArr = TypeData.map(e => {
     return e
@@ -448,119 +485,52 @@ const TypeDataFunc = () => {
 
   return (
     <div>
-      <Button fill popoverOpen='.popover-menu'>
-        Set Type 1
+      <Button fill popupOpen='.demo-popup'>
+        Open Popup
       </Button>
-
-      <Popover className='popover-menu'>
-        <List style={{ fontSize: '10pt' }}>
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'red', height: '3em' }}
-            title='Fire'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'blue', height: '3em' }}
-            title='Water'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'green', height: '3em' }}
-            title='Grass'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'yellow', height: '3em' }}
-            title='Electric'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'teal', height: '3em' }}
-            title='Flying'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'tan', height: '3em' }}
-            title='Rock'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'brown', height: '3em' }}
-            title='Ground'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'lightblue', height: '3em' }}
-            title='Ice'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'gray', height: '3em' }}
-            title='Steel'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'Purple', color: 'white', height: '3em' }}
-            title='Ghost'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'Pink', height: '3em' }}
-            title='Fairy'
-          />
-
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'black', color: 'white', height: '3em' }}
-            title='Dark'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'magenta', height: '3em' }}
-            title='Psychic'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'lightgreen', height: '3em' }}
-            title='Bug'
-          />
-
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'Purple', color: 'white', height: '3em' }}
-            title='Poison'
-          />
-
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'white', height: '3em' }}
-            title='Normal'
-          />
-          <ListItem
-            link='#'
-            popoverClose
-            style={{ background: 'maroon', height: '3em' }}
-            title='Fighting'
-          />
-        </List>
-      </Popover>
+      <Popup className='demo-popup'>
+        <Navbar>
+          Select a Type
+          <NavRight>
+            <Link popupClose>Close</Link>
+          </NavRight>
+        </Navbar>
+        <Block
+          className='center'
+          style={{
+            display: 'flexbox',
+            alignContent: '',
+            flexWrap: 'wrap'
+          }}
+        >
+          <Link className='popupBtn' popupClose>
+            <img src={TypeData[0].imgSrcC} />
+          </Link>
+          <Link className='popupBtn' popupClose>
+            <img src={TypeData[1].imgSrcC} />
+          </Link>
+          <Link className='popupBtn' popupClose>
+            <img src={TypeData[2].imgSrcC} />
+          </Link>
+          <Link className='popupBtn' popupClose>
+            <img src={TypeData[3].imgSrcC} />
+          </Link>
+          <img className='popupBtn' src={TypeData[4].imgSrcC} />
+          <img className='popupBtn' src={TypeData[5].imgSrcC} />
+          <img className='popupBtn' src={TypeData[6].imgSrcC} />
+          <img className='popupBtn' src={TypeData[7].imgSrcC} />
+          <img className='popupBtn' src={TypeData[8].imgSrcC} />
+          <img className='popupBtn' src={TypeData[9].imgSrcC} />
+          <img className='popupBtn' src={TypeData[10].imgSrcC} />
+          <img className='popupBtn' src={TypeData[11].imgSrcC} />
+          <img className='popupBtn' src={TypeData[12].imgSrcC} />
+          <img className='popupBtn' src={TypeData[13].imgSrcC} />
+          <img className='popupBtn' src={TypeData[14].imgSrcC} />
+          <img className='popupBtn' src={TypeData[15].imgSrcC} />
+          <img className='popupBtn' src={TypeData[16].imgSrcC} />
+          <img className='popupBtn' src={TypeData[17].imgSrcC} />
+        </Block>
+      </Popup>
     </div>
   )
 }

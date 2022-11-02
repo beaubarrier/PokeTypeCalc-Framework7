@@ -92,3 +92,7 @@ body {
  text-justify: center;
  text-align: center;
 } */
+.popupBtn {
+  margin:2%;
+  padding:2%;
+}

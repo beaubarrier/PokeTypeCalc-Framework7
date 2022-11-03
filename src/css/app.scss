@@ -126,6 +126,16 @@ body {
 }
 
 .popupBtn {
-  margin:2%;
+  margin:3.5%;
  
+}
+#btn1{
+  display: true;
+}
+
+.noDisplay{
+  display:none;
+}
+.showDisplay{
+  display:initial;
 }

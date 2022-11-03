@@ -93,14 +93,16 @@ const TypeDataFunc = () => {
     //   return clearTypeFunc();
     // }
   }
+
   const renderTypeBtn1 = () => {
     return (
       <div id='type1Btn' key='type1Btn'>
         {TypeData.map(type => (
-          <button
+          <Link
+            popupClose
             key={`typeBtn${type.id}`}
-            className={`${type.name} typeBtnStyle`}
-            src={type.imgSrc}
+            className={`${type.name}  popupBtn`}
+            src={type.imgSrcC}
             onClick={() => {
               setType1Name(type.name)
               setType1AtkSE(type.superEff)
@@ -110,10 +112,13 @@ const TypeDataFunc = () => {
               setResistSt(type.resist)
               setImmuneSt(type.immune)
               setCurrentTypeBtn('type2')
+              {
+                changeStyle
+              }
             }}
           >
-            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrc} />
-          </button>
+            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrcC} />
+          </Link>
         ))}
       </div>
     )
@@ -122,10 +127,11 @@ const TypeDataFunc = () => {
     return (
       <div id='type2Btn' key='type2Btn'>
         {TypeData.map(type => (
-          <button
+          <Link
+            popupClose
             key={`typeBtn${type.id}`}
             className={`${type.name} typeBtnStyle`}
-            src={type.imgSrc}
+            src={type.imgSrcC}
             onClick={() => {
               setType2Name(type.name)
               setType2AtkSE(type.superEff)
@@ -135,10 +141,13 @@ const TypeDataFunc = () => {
               adjustRes(type)
               adjustImmu(type)
               setCurrentTypeBtn('clear')
+              {
+                changeStyle
+              }
             }}
           >
-            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrc} />
-          </button>
+            <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrcC} />
+          </Link>
         ))}
       </div>
     )
@@ -458,6 +467,8 @@ const TypeDataFunc = () => {
     let immuArr = immuneSt.concat(props.immune)
     setImmuneSt(removeDuplicates(immuArr))
   }
+  const btn = document.getElementById('btn1')
+
   function clearTypes () {
     setType1Name([])
     setType2Name([])
@@ -482,55 +493,95 @@ const TypeDataFunc = () => {
     setType2AtkNF([])
     setType2AtkNFImg([])
   }
+  const [style, setStyle] = useState('showDisplay')
+  const changeStyle = () => {
+    console.log('you just clicked')
+
+    setStyle('noDisplay')
+  }
 
   return (
     <div>
-      <Button fill popupOpen='.demo-popup'>
-        Open Popup
-      </Button>
-      <Popup className='demo-popup'>
-        <Navbar>
-          Select a Type
-          <NavRight>
-            <Link popupClose>Close</Link>
-          </NavRight>
-        </Navbar>
-        <Block
-          className='center'
-          style={{
-            display: 'flexbox',
-            alignContent: '',
-            flexWrap: 'wrap'
-          }}
-        >
-          <Link className='popupBtn' popupClose>
-            <img src={TypeData[0].imgSrcC} />
-          </Link>
-          <Link className='popupBtn' popupClose>
-            <img src={TypeData[1].imgSrcC} />
-          </Link>
-          <Link className='popupBtn' popupClose>
-            <img src={TypeData[2].imgSrcC} />
-          </Link>
-          <Link className='popupBtn' popupClose>
-            <img src={TypeData[3].imgSrcC} />
-          </Link>
-          <img className='popupBtn' src={TypeData[4].imgSrcC} />
-          <img className='popupBtn' src={TypeData[5].imgSrcC} />
-          <img className='popupBtn' src={TypeData[6].imgSrcC} />
-          <img className='popupBtn' src={TypeData[7].imgSrcC} />
-          <img className='popupBtn' src={TypeData[8].imgSrcC} />
-          <img className='popupBtn' src={TypeData[9].imgSrcC} />
-          <img className='popupBtn' src={TypeData[10].imgSrcC} />
-          <img className='popupBtn' src={TypeData[11].imgSrcC} />
-          <img className='popupBtn' src={TypeData[12].imgSrcC} />
-          <img className='popupBtn' src={TypeData[13].imgSrcC} />
-          <img className='popupBtn' src={TypeData[14].imgSrcC} />
-          <img className='popupBtn' src={TypeData[15].imgSrcC} />
-          <img className='popupBtn' src={TypeData[16].imgSrcC} />
-          <img className='popupBtn' src={TypeData[17].imgSrcC} />
-        </Block>
-      </Popup>
+      <Row style={{ width: '100%' }}>
+        <Col>
+          <Block style={{ display: 'flex', alignContent: 'center' }}>
+            <Button
+              id='btn1'
+              fill
+              popupOpen='.demo-popup'
+              style={{ width: '46%' }}
+              className={style}
+              onClick={changeStyle}
+            >
+              Type 1
+            </Button>
+
+            <Button
+              fill
+              popupOpen='.demo-popup2'
+              className='popupBtn btn2'
+              style={{ width: '46%' }}
+            >
+              Type 2
+            </Button>
+
+            <Popup className='demo-popup'>
+              <Navbar>
+                Select Type 1
+                <NavRight>
+                  <Link popupClose>Close</Link>
+                </NavRight>
+              </Navbar>
+
+              <Block
+                className='center'
+                style={{
+                  display: 'flexbox',
+                  alignContent: '',
+                  flexWrap: 'wrap'
+                }}
+              >
+                {renderTypeBtn1()}
+              </Block>
+            </Popup>
+            <Popup className='demo-popup2'>
+              <Navbar>
+                Select Type 2
+                <NavRight>
+                  <Link popupClose>Close</Link>
+                </NavRight>
+              </Navbar>
+
+              <Block
+                className='center'
+                style={{
+                  display: 'flexbox',
+                  alignContent: '',
+                  flexWrap: 'wrap'
+                }}
+              >
+                {renderTypeBtn2()}
+              </Block>
+            </Popup>
+          </Block>
+        </Col>
+      </Row>
+      <Row>
+        <Col className='center'> {type1nameImg}</Col>
+        <Col className='center'>{type2nameImg}</Col>
+      </Row>
+      <Block className='center'>
+        <Row>
+          <Col>
+            <Card title='Defences' style={{ width: '100%' }}>
+              {type1name}
+            </Card>
+          </Col>
+        </Row>
+      </Block>
+      <Row>
+        <Col>{type1nameImg}</Col>
+      </Row>
     </div>
   )
 }

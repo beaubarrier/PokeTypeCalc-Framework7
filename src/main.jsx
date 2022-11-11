@@ -16,10 +16,18 @@ import {
   Link,
   Popup,
   NavRight,
-  NavLeft
+  NavLeft,
+  Fab,
+  FabButton,
+  FabButtons
 } from 'framework7-react'
 import TypeData from './TypeData'
 import './css/app.scss'
+import superEffDefenseIcon from './assets/superEffDefenseIcon.png'
+import resistDefenseIcon from './assets/resistDefenseIcon.png'
+import immuneDefenseIcon from './assets/immuneDefenseIcon.png'
+
+// import ProgressbarComponent from 'framework7/types/components/progressbar/progressbar'
 
 const TypeDataFunc = () => {
   const [type1nameImg, setType1NameImg] = useState([])
@@ -47,36 +55,7 @@ const TypeDataFunc = () => {
   const [currentTypeBtn, setCurrentTypeBtn] = useState('type1')
   const popup = useRef(null)
   const onPageBeforeRemove = () => {
-    // Destroy popup when page removed
     if (popup.current) popup.current.destroy()
-  }
-
-  const createPopup = () => {
-    // Create popup
-    if (!popup.current) {
-      popup.current = f7.popup.create({
-        content: `
-          <div class="popup">
-            <div class="page">
-              <div class="navbar">
-                <div class="navbar-inner">
-                  <div class="navbar-bg"></div>
-                  <div class="title">Dynamic Popup</div>
-                  <div class="right"><a href="#" class="link popup-close">Close</a></div>
-                </div>
-              </div>
-              <div class="page-content">
-                <div class="block">
-                  <p>Choose a type.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `.trim()
-      })
-    }
-    // Open it
-    popup.current.open()
   }
 
   const nameArr = TypeData.map(e => {
@@ -112,9 +91,6 @@ const TypeDataFunc = () => {
               setResistSt(type.resist)
               setImmuneSt(type.immune)
               setCurrentTypeBtn('type2')
-              {
-                changeStyle
-              }
             }}
           >
             <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrcC} />
@@ -141,9 +117,6 @@ const TypeDataFunc = () => {
               adjustRes(type)
               adjustImmu(type)
               setCurrentTypeBtn('clear')
-              {
-                changeStyle
-              }
             }}
           >
             <img alt={`typeBtn${type.id}`} key={type.name} src={type.imgSrcC} />
@@ -467,7 +440,6 @@ const TypeDataFunc = () => {
     let immuArr = immuneSt.concat(props.immune)
     setImmuneSt(removeDuplicates(immuArr))
   }
-  const btn = document.getElementById('btn1')
 
   function clearTypes () {
     setType1Name([])
@@ -493,95 +465,190 @@ const TypeDataFunc = () => {
     setType2AtkNF([])
     setType2AtkNFImg([])
   }
-  const [style, setStyle] = useState('showDisplay')
-  const changeStyle = () => {
-    console.log('you just clicked')
-
-    setStyle('noDisplay')
+  const [hidden, setHidden] = useState('showDisplay')
+  const changeHidden = () => {
+    setHidden('noDisplay')
+  }
+  const [typeBtn2Vis, setTypeBtn2Vis] = useState('noDisplay')
+  const changeTypeBtn2Vis = () => {
+    if (typeBtn2Vis == 'noDisplay') {
+      setTypeBtn2Vis('showDisplay')
+    } else {
+      setTypeBtn2Vis('noDisplay')
+    }
+  }
+  const [resetBtnVis, setResetBtnVis] = useState('noDisplay')
+  const changeResetBtnVis = () => {
+    if (resetBtnVis == 'noDisplay') {
+      setResetBtnVis('showDisplay')
+    } else {
+      setResetBtnVis('noDisplay')
+    }
   }
 
   return (
-    <div>
-      <Row style={{ width: '100%' }}>
-        <Col>
-          <Block style={{ display: 'flex', alignContent: 'center' }}>
-            <Button
-              id='btn1'
-              fill
-              popupOpen='.demo-popup'
-              style={{ width: '46%' }}
-              className={style}
-              onClick={changeStyle}
-            >
-              Type 1
-            </Button>
-
-            <Button
-              fill
-              popupOpen='.demo-popup2'
-              className='popupBtn btn2'
-              style={{ width: '46%' }}
-            >
-              Type 2
-            </Button>
-
-            <Popup className='demo-popup'>
-              <Navbar>
-                Select Type 1
-                <NavRight>
-                  <Link popupClose>Close</Link>
-                </NavRight>
-              </Navbar>
-
-              <Block
-                className='center'
-                style={{
-                  display: 'flexbox',
-                  alignContent: '',
-                  flexWrap: 'wrap'
-                }}
-              >
-                {renderTypeBtn1()}
-              </Block>
-            </Popup>
-            <Popup className='demo-popup2'>
-              <Navbar>
-                Select Type 2
-                <NavRight>
-                  <Link popupClose>Close</Link>
-                </NavRight>
-              </Navbar>
-
-              <Block
-                className='center'
-                style={{
-                  display: 'flexbox',
-                  alignContent: '',
-                  flexWrap: 'wrap'
-                }}
-              >
-                {renderTypeBtn2()}
-              </Block>
-            </Popup>
-          </Block>
-        </Col>
-      </Row>
-      <Row>
-        <Col className='center'> {type1nameImg}</Col>
-        <Col className='center'>{type2nameImg}</Col>
-      </Row>
-      <Block className='center'>
-        <Row>
+    <div id='div'>
+      {/* style={{
+          display: 'flex',
+          // flexDirection: 'column',
+          justifyContent: 'center',
+          alignSelf: 'flex-end'
+        }}
+     */}
+      <Card
+        style={{
+          alignSelf: 'flex-start',
+          justifySelf: 'flex-start',
+          width: '100%',
+          alignItems: 'flex-start'
+        }}
+      >
+        <Col style={{ height: '100%' }}></Col>
+        <Card title='' style={{}}>
           <Col>
-            <Card title='Defences' style={{ width: '100%' }}>
-              {type1name}
-            </Card>
+            <img
+              style={{ width: '10%', alignSelf: 'center' }}
+              className='superEffDefenseIcon'
+              src={superEffDefenseIcon}
+            />
+
+            {weakStImg}
           </Col>
-        </Row>
-      </Block>
-      <Row>
-        <Col>{type1nameImg}</Col>
-      </Row>
+        </Card>
+        <Card>
+          <Col>
+            <img
+              style={{ width: '10%' }}
+              className='resistDefenseIcon'
+              src={resistDefenseIcon}
+            />
+            {resistStImg}
+          </Col>
+        </Card>
+        <Card>
+          <Col>
+            <img
+              style={{ width: '10%' }}
+              className='immuneEffDefenseIcon'
+              src={immuneDefenseIcon}
+            />
+            {immuneStImg}
+          </Col>
+        </Card>
+      </Card>
+      <Button
+        fill
+        id='fab'
+        slot='fixed'
+        text='Select Type 1'
+        position='center-bottom'
+        popupOpen='.demo-popup'
+        className={hidden}
+        onClick={() => {
+          changeHidden()
+          changeTypeBtn2Vis()
+        }}
+      ></Button>
+      <Button
+        // id='btn1'
+        fill
+        id='fab'
+        text='Select Type 2'
+        position='center-bottom'
+        // style={{ position: 'flex-end' }}
+        popupOpen='.demo-popup2'
+        className={typeBtn2Vis}
+        onClick={() => {
+          changeHidden()
+          changeTypeBtn2Vis()
+          changeResetBtnVis()
+        }}
+      ></Button>
+      <Button
+        fill
+        id='fab'
+        className={resetBtnVis}
+        style={{}}
+        onClick={() => {
+          clearTypes()
+          changeResetBtnVis()
+          setHidden()
+        }}
+      >
+        Reset
+      </Button>
+
+      {/* <Button
+        fill
+        popupOpen='.demo-popup2'
+        className={typeBtn2Vis}
+        style={{ width: '100%' }}
+        onClick={() => {
+          changeTypeBtn2Vis()
+          changeResetBtnVis()
+        }}
+      >
+        Select Type 2
+      </Button>
+      <Button
+        fill
+        className={resetBtnVis}
+        style={{ width: '100%' }}
+        onClick={() => {
+          clearTypes()
+          changeResetBtnVis()
+          setHidden()
+        }}
+      >
+        Reset
+      </Button> */}
+      <Popup className='demo-popup'>
+        <Navbar>
+          Select Type 1
+          <NavRight>
+            <Link popupClose>Close</Link>
+          </NavRight>
+        </Navbar>
+
+        <Block
+          className='center'
+          style={{
+            display: 'flexbox',
+            alignContent: '',
+            flexWrap: 'wrap'
+          }}
+        >
+          {renderTypeBtn1()}
+        </Block>
+      </Popup>
+      <Popup className='demo-popup2'>
+        <Navbar>
+          Select Type 2
+          <NavRight>
+            <Link popupClose>Close</Link>
+          </NavRight>
+        </Navbar>
+
+        <Block
+          className='center'
+          style={{
+            display: 'flexbox',
+            alignContent: '',
+            flexWrap: 'wrap'
+          }}
+        >
+          {renderTypeBtn2()}
+        </Block>
+      </Popup>
+      {/* 
+      <Col className='center'> {type1nameImg}</Col>
+      <Col className='center'>{type2nameImg}</Col> */}
+      {/* 
+      <Block className='center'>
+        <Col>
+          <Card title='Defences' style={{ width: '100%' }}></Card>
+        </Col>
+      </Block> */}
     </div>
   )
 }

@@ -503,38 +503,56 @@ const TypeDataFunc = () => {
           alignItems: 'flex-start'
         }}
       >
-        <Col style={{ height: '100%' }}></Col>
-        <Card title='' style={{}}>
-          <Col>
-            <img
-              style={{ width: '10%', alignSelf: 'center' }}
-              className='superEffDefenseIcon'
-              src={superEffDefenseIcon}
-            />
-
-            {weakStImg}
-          </Col>
+        {/* <Col style={{ height: '100%' }}></Col> */}
+        <Card
+          style={
+            {
+              // height: '100%',
+              // alignItems: ''
+            }
+          }
+          // title='Weak'
+          className='centerVert'
+        >
+          {/* <img
+            style={{ width: '6.5%' }}
+            className='superEffDefenseIcon '
+            src={superEffDefenseIcon}
+          /> */}
+          Weak
+          {weakStImg}
         </Card>
-        <Card>
-          <Col>
-            <img
-              style={{ width: '10%' }}
+        <Card
+          // title='Resistant'
+          className='centerVert'
+        >
+          <div className='centerVert'>
+            {/* <img
+              style={{ width: '6.5%' }}
               className='resistDefenseIcon'
               src={resistDefenseIcon}
-            />
+            /> */}
+            Resist
             {resistStImg}
-          </Col>
+          </div>
         </Card>
-        <Card>
-          <Col>
-            <img
-              style={{ width: '10%' }}
-              className='immuneEffDefenseIcon'
-              src={immuneDefenseIcon}
-            />
-            {immuneStImg}
-          </Col>
+        <Card
+          // title='Immune'
+          className='centerVert'
+        >
+          {/* <img
+            style={{ width: '6.5%' }}
+            className='immuneEffDefenseIcon'
+            src={immuneDefenseIcon}
+          /> */}
+          Immune
+          {immuneStImg}
         </Card>
+        <Row className='center'>
+          <Col>Strong</Col>
+          <Col>Resisted</Col>
+          <Col>Immune</Col>
+        </Row>
       </Card>
       <Button
         fill

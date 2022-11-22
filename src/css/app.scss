@@ -77,6 +77,13 @@ body {
  text-justify: center;
  text-align: center;
 } 
+.centerVert{
+
+    display:flex;
+    text-align:center;
+    text-justify: center;
+ align-content:center;
+}
 .typeNameMargin{
   margin-top: 48%;
 }
@@ -153,8 +160,4 @@ body {
 #fab{
   margin:10%;
   position:fixed;
-}
-#superEffDefenseIcon{
-  // width:50px;
-  // height:50px;
 }
